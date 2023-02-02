@@ -34,7 +34,10 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+The purpose for this project is to allow communities of musicians to share schedules, music, and communications.  
+The project is comprised of two major domains:
+1. Member: Music community members interact with administrators and each other here. Members can receive notifications, sheet music, and schedules. Members can also indicate interest in events and join small groups such as sections and ensembles.
+2. Administrator: Administrator's can manage all aspects of the music community. The primary features are member management, section/ensemble/group management, event management, member notification, and sheet music/material management.  
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -96,9 +99,12 @@ Add additional notes about how to deploy this on a live system.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [CosmosDB](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) - Database
+- [Visual Studio Code](https://code.visualstudio.com/) - Code Editor and Debugger
+- [Dev Containers](https://microsoft.github.io/code-with-engineering-playbook/developer-experience/devcontainers/) - Dev Containers
+- [WSL](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview) - Linux virtualization on Windows
 - [.Net 6](https://dotnet.microsoft.com/en-us/learn) - Framework
 - [C#](https://learn.microsoft.com/en-us/dotnet/csharp/) - Language
+- [CosmosDB](https://learn.microsoft.com/en-us/azure/cosmos-db/introduction) - Database
 - [Docker](https://www.docker.com/101-tutorial/) - Containerization
 - [AKS: Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/) - Orchestration
 - [Identity Server](https://duendesoftware.com/products/identityserver) - Identity
