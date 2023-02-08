@@ -1,0 +1,47 @@
+﻿@page "/fetchdata"
+@using Nebula.Shared 
+@inject HttpClient Http
+
+<h1>User Info</h1>
+
+<p>This component fetches data from the server.</p>
+
+@if (user == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@code {
+    private User user = new User();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            user = await Http.GetFromJsonAsync<User>("/api/User") ?? new User();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+}
