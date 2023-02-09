@@ -3,7 +3,7 @@ name: dotnet package
 on:
   push:
     paths:
-      - 'src/Api/**.*'
+      - 'src/Api/**'
 
 jobs:
   build:
