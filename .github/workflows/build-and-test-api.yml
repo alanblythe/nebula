@@ -19,11 +19,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Change Current Directory
-        run: cd src/Api
       - name: Install dependencies
+        working-directory: ./src/Api
         run: dotnet restore
       - name: Build
         run: dotnet build --configuration Release --no-restore
+        working-directory: ./src/Api
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+        working-directory: ./src/Api
