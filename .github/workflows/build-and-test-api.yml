@@ -34,3 +34,17 @@ jobs:
       - name: dotnet publish
         working-directory: ./src/Api
         run: dotnet publish -p PublishProfile=DefaultContainer
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.ACR_URI }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+      - name: docker tag for ACR, latest
+        run: docker tag nebula-api:latest ${{ secrets.ACR_URI }}/nebula-api:latest
+      - name: docker push to ACR, latest
+        run: docker push ${{ secrets.ACR_URI }}/nebula-api:latest
+      - name: docker tag for ACR, github.sha
+        run: docker tag nebula-api:latest ${{ secrets.ACR_URI }}/nebula-api:${{ github.sha }}
+      - name: docker push to ACR, latest
+        run: docker push ${{ secrets.ACR_URI }}/nebula-api:${{ github.sha }}
+      
