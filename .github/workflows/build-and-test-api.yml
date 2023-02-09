@@ -28,7 +28,9 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
         working-directory: ./src/Api
-      - name: Publish Container
+      - name: Add Microsoft.NET.Build.Containers package
         working-directory: ./src/Api
         run: dotnet add package Microsoft.NET.Build.Containers
+      - name: dotnet publish
+        working-directory: ./src/Api
         run: dotnet publish -p PublishProfile=DefaultContainer
