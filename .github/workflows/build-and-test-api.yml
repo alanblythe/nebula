@@ -9,12 +9,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         dotnet-version: ['7.0' ]
-
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
@@ -34,6 +33,10 @@ jobs:
         working-directory: ./src/Api
         run: dotnet add package Microsoft.NET.Build.Containers
   terraform:
+    strategy:
+      max-parallel: 1
+      matrix: 
+        run: ['run1']
     name: 'Terraform'
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
@@ -42,7 +45,7 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
     runs-on: ubuntu-latest
     environment: dev
- 
+
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -110,7 +113,11 @@ jobs:
   deployapps:
     runs-on: ubuntu-latest
     environment: dev
- 
+    strategy:
+      max-parallel: 1
+      matrix: 
+        run: ['run1']
+
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
