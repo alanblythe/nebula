@@ -1,5 +1,10 @@
 {
   "recommendations": [
-    "ms-dotnettools.csharp"
+    "ms-dotnettools.csharp",
+    "hashicorp.terraform",
+    "ms-vscode-remote.remote-containers",
+    "ms-dotnettools.blazorwasm-companion",
+    "cschleiden.vscode-github-actions",
+    "GitHub.vscode-pull-request-github"
   ]
 }
