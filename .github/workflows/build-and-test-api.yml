@@ -112,7 +112,7 @@ jobs:
               body: output
             })
   deployapps:
-    needs: [build,terraform]
+    needs: [build,terraform-dev]
     runs-on: ubuntu-latest
     environment: dev
     strategy:
